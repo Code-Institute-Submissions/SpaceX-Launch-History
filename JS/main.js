@@ -1,5 +1,8 @@
+var years = [];
+
+
 /**
- * A callback function that calls the SpaceXdata api 
+ * API called and parsed to JSON
  * @param {*} cb 
  */
 function getData(cb){
@@ -15,12 +18,41 @@ function getData(cb){
     };
 }
 
+/**
+ * 
+ * @param {*} data 
+ */
 function getYears(data){
-    const launchData = data[0].launch_year
-    const yearDiv = $(".year");
-    yearDiv.html(`<p> ${launchData}</p>`)
-   
+    const launchData = data; 
+    launchData.forEach(element => {
+        if(years.includes(element.launch_year)){
+            // Do Nothing
+        }else{
+            years.push(element.launch_year)
+        }
+    });
+    displayYears();
 }
 
-getData(getYears)
+function displayYears(){
+    const yearDiv = $(".year");
+    years.forEach(year => {
+        yearDiv.append(`<div class="card mb-3" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="launch from ${year}">
+        <div class="card-body">
+        <a href="#" class="btn btn-primary centre">${year}</a>
+        </div>
+        </div>`)
+    })
+};
 // GetData which is passed returndata => 
+
+$(document).ready(function(){
+    getData(getYears);
+})
+
+const yearDiv = $(".year");
+for(var i = 0; i > 4; i++){
+    yearDiv.append();
+
+}
