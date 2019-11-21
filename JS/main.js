@@ -1,6 +1,7 @@
 var years = []; // Var used to store years, used by getYears and displayYears
 var locations = [] // Var used to store locations 
 var rockets = [] // var used to store rocket types
+var missions = [] // var for storing mission info
 var spacexData = [] // used to store all data pulled from API. 
 
 /**
@@ -68,29 +69,51 @@ function getRocket(){
     }
 }
 
+/**
+ * Displays rockets on page
+ */
 function displayRockets(){
-    const rocketDiv = $(".rockets");
+    const rocketDiv = $("#rocket-select");
     rocketDiv.empty(); //Removes child elements.
     rockets.forEach(rocket => {
-       rocketDiv.append(`<div class="form-check">
-       <input class="form-check-input " type="radio" name="gridRadios"
-           id="${rocket}" value="${rocket}" checked>
-       <label class="form-check-label" for="${rocket}">
-           ${rocket}
-       </label>
-   </div>`)
+       rocketDiv.append(`<option>${rocket}</option>`)
     })
     $(".rocket-select").show();
 }
+
+
+function getMissions(){
+    missions = [] //Clears missions already in array
+    spacexData.forEach(element => {
+        if(!(missions.includes(element.mission_name)) 
+            && (element.launch_year == $("#year-select").val()) 
+            && (element.rocket.rocket_name == $("#rocket-select").val()))
+         { //If rocket name not in array and selected year is equal to the year of cuurent element.
+            missions.push(element.mission_name)
+        }
+    });
+    displayMissions()
+}
+
+function displayMissions(){
+    const missionForm = $("#missions");
+    missionForm.empty()
+    missions.forEach(mission => {
+        missionForm.append(`<option>${mission}</option>`)
+    })
+    $(".mission-select").show();
+}
+
 
 /**
  * Hides all selections until they are relevant.
  */
 function hideSelection(){
     $(".rocket-select").hide();
-    $(".location-select").hide();
     $(".mission-select").hide();
 }
+
+
 
 
 //Event Listerners. 
@@ -98,6 +121,10 @@ $("#year-select").change(function(){
     $(".choose").hide();
     getRocket();
 });
+
+$("#rocket-select").change(function(){
+    getMissions()
+})
 
 
 $(document).ready(function(){
