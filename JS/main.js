@@ -44,7 +44,6 @@ function getYears(){
 /**
  * Appends years found in API to HTML.
  */
-
 function displayYears(){
     const yearDiv = $("#year-select");
     years.forEach(year => {
@@ -53,20 +52,35 @@ function displayYears(){
 };
 
 /**
- * 
+ * Gets rockets from spaceXdata and stores them in the rockets array
  */
 function getRocket(){
-    rockets = []
+    rockets = [] //Clears rockets already in array
     spacexData.forEach(element => {
-        if(!(rockets.includes(element.rocket.rocket_name)) && (element.launch_year == $("#year-select").val())){
+        if(!(rockets.includes(element.rocket.rocket_name)) && (element.launch_year == $("#year-select").val())){ //If rocket name not in array and selected year is equal to the year of cuurent element.
             rockets.push(element.rocket.rocket_name)
         }
     });
-    $(".rocket-select").show();
+    if(rockets.length > 1){
+        displayRockets();
+    }else{
+        hideSelection();
+    }
 }
 
 function displayRockets(){
-
+    const rocketDiv = $(".rockets");
+    rocketDiv.empty(); //Removes child elements.
+    rockets.forEach(rocket => {
+       rocketDiv.append(`<div class="form-check">
+       <input class="form-check-input " type="radio" name="gridRadios"
+           id="${rocket}" value="${rocket}" checked>
+       <label class="form-check-label" for="${rocket}">
+           ${rocket}
+       </label>
+   </div>`)
+    })
+    $(".rocket-select").show();
 }
 
 /**
@@ -77,6 +91,13 @@ function hideSelection(){
     $(".location-select").hide();
     $(".mission-select").hide();
 }
+
+
+//Event Listerners. 
+$("#year-select").change(function(){
+    $(".choose").hide();
+    getRocket();
+});
 
 
 $(document).ready(function(){
