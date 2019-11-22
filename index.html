@@ -9,121 +9,136 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>SpaceX Launch History</title>
 </head>
 
 <body>
     <header>
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md mx-auto bg-dark">
-                    <h2 class="text-center pt-4 pb-3 bg-dark">SpaceX Launch History</h2>
+        <!-- NAVBAR START -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="#">Contact</a>
+                  </div>
                 </div>
+              </nav>
+        <!-- NAVBAR END -->
 
+        <!-- Jumbotron Start -->
+        <div class="jumbotron jumbotron-fluid gray text-center my-0">
+            <div class="container">
+                <h1 class="">SpaceX Launch History</h1>
             </div>
         </div>
+
+        <!-- Jumbotron End -->
     </header>
 
     <main>
         <!-- INFO START -->
-            <div class="container-fluid pt-5">
-                <div class="row">
-                    <div class="col-md-3 mx-auto">
-                        <!-- FORM START -->
-                        <h4 class="pb-4">What launch would you like to know about?</h4>
-                        <form>
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <div class="col-md-3 mx-auto">
+                    <!-- FORM START -->
+                    <h4 class="pb-4">What launch would you like to know about?</h4>
+                    <form>
 
 
-                            <!-- YEAR SELECT -->
-                            <div class="form-group">
-                                <label for="year-select">Year Select</label>
-                                <select class="form-control" id="year-select">
-                                    <option selected class="choose">Choose a year</option>
-                                </select>
-                            </div>
-                            <!-- YEAR SELECT END -->
-
-
-
-                            <!-- ROCKET SELECT -->
-                            <fieldset class="form-group rocket-select">
-                                <label for="rocket-select">Rocket Select</label>
-                                <select class="form-control" id="rocket-select">
-                                    <option selected >Choose Rocket</option>
-                                </select>
-
-                            </fieldset>
-                            <!-- ROCKET SELECT END -->
+                        <!-- YEAR SELECT -->
+                        <div class="form-group">
+                            <label for="year-select">Year Select</label>
+                            <select class="form-control" id="year-select">
+                                <option selected class="choose">Choose a year</option>
+                            </select>
+                        </div>
+                        <!-- YEAR SELECT END -->
 
 
 
-                            <!-- MISSION SELECT -->
-                            <div class="form-group mission-select">
-                                <label for="missions">Select Mission</label>
-                                <select  class="form-control" id="missions">
-                                </select>
-                            </div>
-                            <!-- MISSION SELECT END -->
-                            <!-- <div class="div pt-3 pb-3">
+                        <!-- ROCKET SELECT -->
+                        <fieldset class="form-group rocket-select">
+                            <label for="rocket-select">Rocket Select</label>
+                            <select class="form-control" id="rocket-select">
+                                <option selected>Choose Rocket</option>
+                            </select>
+
+                        </fieldset>
+                        <!-- ROCKET SELECT END -->
+
+
+
+                        <!-- MISSION SELECT -->
+                        <div class="form-group mission-select">
+                            <label for="missions">Select Mission</label>
+                            <select class="form-control" id="missions">
+                            </select>
+                        </div>
+                        <!-- MISSION SELECT END -->
+                        <!-- <div class="div pt-3 pb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div> -->
 
-                        </form>
-                        <!-- FORM END -->
-                    </div>
+                    </form>
+                    <!-- FORM END -->
+                </div>
 
-                    <!-- <div  class=" col-md-2 mx-left mission-div">
+                <!-- <div  class=" col-md-2 mx-left mission-div">
 
                     </div> -->
 
-                    <div class="col-md-7  mx-auto mission-div pb-3">
-                        <img src="img/dragon.jpg" alt="dragon" capsule class="img-fluid">
-                    </div>
-
+                <div class="col-md-7  mx-auto mission-div pb-5">
+                    <img src="img/dragon.jpg" alt="dragon" capsule class="img-fluid">
                 </div>
+
             </div>
-        
+        </div>
+
         <!-- CAROUSEL END -->
 
         <!-- CONTACT START -->
         <div class="div gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 p-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 p-4">
                         <form>
-                                <div class="form-group">
-                                    <h3 class="pb-3 pt-3">Get In contact</h3>
-                                  <label for="exampleFormControlInput1">Email address</label>
-                                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleFormControlTextarea1">Your Message</label>
-                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                  
-                                </div>
-                                <button type="submit" class="btn btn-light">Submit</button>
-                              </form>
+                            <div class="form-group">
+                                <h3 class="pb-3 pt-3">Get In contact</h3>
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Your Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                            </div>
+                            <button type="submit" class="btn btn-light">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <!-- CONTACT END -->
 
     </main>
 
     <footer>
-            <footer class="footer mt-auto py-3  text-center bg-dark">
-                    <div class="row">
-                      <div class="col-md-4 mx-auto">
+        <footer class="footer mt-auto py-3  text-center bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 mx-auto">
                         <a href="https://github.com/EthanCundick/" target="_blank"><i class="fa fa-github pt-2"></i></a>
-                      </div>
                     </div>
-                  </footer>
-  
+                </div>
+        </footer>
+
+        </div>
+
 
     </footer>
 
