@@ -83,13 +83,15 @@ function displayRockets(){
     } 
 }
 
-
+/**
+ * Gets missions of year and rocket selected.
+ */
 function getMissions(){
     missions = [] //Clears missions already in array
     spacexData.forEach(element => {
         if(!(missions.includes(element.mission_name)) 
-            && (element.launch_year == $("#year-select").val()) 
-            && (element.rocket.rocket_name == $("#rocket-select").val()))
+            && (element.launch_year == $("#year-select").val()) //Check launch year current value
+            && (element.rocket.rocket_name == $("#rocket-select").val())) //checks current rocket value
          { //If rocket name not in array and selected year is equal to the year of cuurent element.
             missions.push(element.mission_name)
         }
@@ -97,6 +99,9 @@ function getMissions(){
     displayMissions()
 }
 
+/**
+ * Displays missions on page
+ */
 function displayMissions(){
     const missionForm = $("#missions");
     missionForm.empty()
@@ -107,6 +112,9 @@ function displayMissions(){
     updateMissionInfo();
 }
 
+/**
+ * Displays relevant information on page about currently selected mission
+ */
 function updateMissionInfo(){    
     missionDiv.empty()
     spacexData.forEach(element => {
@@ -118,6 +126,8 @@ function updateMissionInfo(){
               </div>`)
             }else if(element.links.mission_patch){
                 missionDiv.append(`<img src=${element.links.mission_patch} class="" id="mission-patch" alt="">`)
+            }else{
+                missionDiv.append(`<img src="img/${element.rocket.rocket_id}.jpg" class="" id="mission-patch" alt="">`)
             }
             missionDiv.append(`<h4 class="mission-info pt-3">Mission Information:</h4>`)
             missionDiv.append(`<p class="mission-date">Date: ${element.launch_date_utc}</p>`)
@@ -155,7 +165,6 @@ $("#rocket-select").change(function(){
 $("#missions").change(function(){
     updateMissionInfo();
 })
-
 
 $(document).ready(function(){
     hideSelection()
