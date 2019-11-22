@@ -127,7 +127,7 @@ function updateMissionInfo(){
             }else if(element.links.mission_patch){
                 missionDiv.append(`<img src=${element.links.mission_patch} class="" id="mission-patch" alt="">`)
             }else{
-                missionDiv.append(`<img src="img/${element.rocket.rocket_id}.jpg" class="" id="mission-patch" alt="">`)
+                missionDiv.append(`<img src="img/${element.rocket.rocket_id}.jpg" class="img-fluid" id="mission-patch" alt="">`)
             }
             missionDiv.append(`<h4 class="mission-info pt-3">Mission Information:</h4>`)
             missionDiv.append(`<p class="mission-date">Date: ${element.launch_date_utc}</p>`)
