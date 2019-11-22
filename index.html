@@ -9,17 +9,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>SpaceX Launch History</title>
 </head>
 
 <body>
     <header>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
-                <div class="col-md mx-auto">
-                    <h2 class="text-center pt-4 pb-3">SpaceX Launch History</h2>
+                <div class="col-md mx-auto bg-dark">
+                    <h2 class="text-center pt-4 pb-3 bg-dark">SpaceX Launch History</h2>
                 </div>
 
             </div>
@@ -62,7 +63,7 @@
                             <!-- MISSION SELECT -->
                             <div class="form-group mission-select">
                                 <label for="missions">Select Mission</label>
-                                <select class="form-control" id="missions">
+                                <select  class="form-control" id="missions">
                                 </select>
                             </div>
                             <!-- MISSION SELECT END -->
@@ -79,11 +80,7 @@
                     </div> -->
 
                     <div class="col-md-7  mx-auto mission-div pb-3">
-                        
-                        
-                        
-                        
-
+                        <img src="img/dragon.jpg" alt="dragon" capsule class="img-fluid">
                     </div>
 
                 </div>
@@ -91,11 +88,42 @@
         
         <!-- CAROUSEL END -->
 
+        <!-- CONTACT START -->
+        <div class="div gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 p-4">
+                        <form>
+                                <div class="form-group">
+                                    <h3 class="pb-3 pt-3">Get In contact</h3>
+                                  <label for="exampleFormControlInput1">Email address</label>
+                                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlTextarea1">Your Message</label>
+                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                  
+                                </div>
+                                <button type="submit" class="btn btn-light">Submit</button>
+                              </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
+        <!-- CONTACT END -->
 
     </main>
 
     <footer>
+            <footer class="footer mt-auto py-3  text-center bg-dark">
+                    <div class="row">
+                      <div class="col-md-4 mx-auto">
+                        <a href="https://github.com/EthanCundick/" target="_blank"><i class="fa fa-github pt-2"></i></a>
+                      </div>
+                    </div>
+                  </footer>
+  
 
     </footer>
 
