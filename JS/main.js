@@ -146,27 +146,39 @@ function updateMissionInfo() {
 // Email JS
 
 function sendMail(contactForm) {
-    emailjs.send("outlook", "default", {
-            "from_name": contactForm.name.value,
-            "from_email": contactForm.email.value,
-            "message": contactForm.message.value
-        })
-        .then(
-            function (response) {
-                console.log("SUCCESS", response);
-            },
-            function (error) {
-                console.log("FAILED", error);
-            }
-        );
-    return false; // To block from loading a new page
+    if (formValidate()) {
+        emailjs.send("outlook", "default", {
+                "from_name": contactForm.name.value,
+                "from_email": contactForm.email.value,
+                "message": contactForm.message.value
+            })
+            .then(
+                function (response) {
+                    console.log("SUCCESS", response);
+                    $(":submit").attr("disabled", true);
+                    $(".btn").html("Message Sent");
+                },
+                function (error) {
+                    console.log("FAILED", error);
+                    $(".btn").html("Failed to send");
+                }
+            );
+        return false; // To block from loading a new page
+    } else {
+        console.log("im here")
+        return false;
+    }
 }
 
 
 // Form Validation
 
-function formValidate(event) {
-
+function formValidate() {
+    if (checkMail() && checkMessage()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -189,10 +201,12 @@ function checkMail() {
 
 function checkMessage() {
     const message = $("#message");
-    if(message.val() === "") {
+    if (message.val() === "") {
         message.css("border", "2px solid red")
+        return false;
     } else {
         message.css("border", "2px solid green");
+        return true
     }
 }
 
