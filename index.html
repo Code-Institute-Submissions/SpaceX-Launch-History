@@ -11,6 +11,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_4qqBJLJuAvuHrS214AoNA");
+        })();
+    </script>
     <title>SpaceX Launch History</title>
 </head>
 
@@ -104,16 +111,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 p-4">
-                        <form>
+                        <form  cid="contact-form"onsubmit="return sendMail(this);">
                             <div class="form-group">
                                 <h3 class="pb-3 pt-3">Get In contact</h3>
-                                <label for="exampleFormControlInput1">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Your Message</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="message">Your Message</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
 
                             </div>
                             <button type="submit" class="btn btn-light">Submit</button>
@@ -122,6 +128,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <!-- CONTACT END -->
 
