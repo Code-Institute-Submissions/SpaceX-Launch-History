@@ -1,6 +1,7 @@
 # SpaceX Launch History
  A history of SpaceX launches that uses the SpacexAPI. This enables you to find spacex launches by year, it will then dispaly information on the page inclduing a video of the launch if there is one. 
 
+[Link to site](http://spacex.ethancundick.com/)
 ## UX
 
 ### User stories 
@@ -13,8 +14,7 @@
 6) Users need a way of being able to contact the site owner. 
 7) Users must be able to use the site on both desktop and mobile devices. 
 
-Wireframe here
-
+[Wireframe here](https://github.com/EthanCundick/SpaceX-Launch-History/blob/master/Design/Web%201920%20%E2%80%93%201.png)
  ## Features
 - Filter by year - Users can select year to filter flights
 - Filter by rocket if applicable - Users can select rocket type if there are different rockets flown that year. 
