@@ -5,16 +5,17 @@
 
 ### User stories 
 
-1)Users need be able to search by SpaceX launches by year. 
-2)Users need to be able to choose rocket where applicable. 
-3)Users need to be able to select mission in year where applicable. 
-4)Users need Inforamtion on mission when available. 
-5)Users need mission video where available. 
-6)Users need a way of cbeing able to contact the site owner. 
+1) Users need be able to search by SpaceX launches by year. 
+2) Users need to be able to choose rocket where applicable. 
+3) Users need to be able to select mission in year where applicable. 
+4) Users need Inforamtion on mission when available. 
+5) Users need mission video where available. 
+6) Users need a way of being able to contact the site owner. 
+7) Users must be able to use the site on both desktop and mobile devices. 
 
+Wireframe here
 
-
-## Features
+ ## Features
 - Filter by year - Users can select year to filter flights
 - Filter by rocket if applicable - Users can select rocket type if there are different rockets flown that year. 
 - Select which mission - Users can select missions within year selected. 
@@ -34,37 +35,27 @@
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+### Launch Search Testing
+- Used year dropdown to ensure it returned an array of years, selected multiple years and ensured they returned rockets and missions where applicable. 
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+- Ensured rocket drop down appeared only when there where multiple rockets used in a year and selected each rocket to see if missions updated per rocket. 
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+-  Ensured mission drop down always returned a list of missions. 
 
-### Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+- Ensure that mission information was updated on change of mission selection. 
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+### Contact form  Testing
+- Ensured when user entered email address that it is in a valid format by using regex. If invalid this will highlight the box border in red. Tried a mixture of address and only correctly formatted addresses worked.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+- Ensured that the user has left a message in the box by checking its value is not empty, it will highlight red if empty. Tried to leave blank and highlighted red.
+
+- Ensured that above criteria is met before submit/send button can be used. Clicked on submit when box above wasnt met and message does not send. 
+
+### Responsiveness Testing
+
+- Ensured site works on mobile and desktop by testing on desktop, tablet and pc devices. Have checked also in browser developer tools to see how it performed. 
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+This site was deployed into Azure blob storage, to do this I simply enabled static websites to be browsable on the blob storage and then upload the files into it, I then created a CNAME to point to the DNS name of the blob storage. 
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-##Credits
-
-Content
-
-The photos used in this site were obtained from ...
-Acknowledgements
