@@ -11,11 +11,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-    <script type="text/javascript">
+    <script src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script>
         (function () {
-            emailjs.init("user_4qqBJLJuAvuHrS214AoNA"); 
+            emailjs.init("user_4qqBJLJuAvuHrS214AoNA");
         })();
     </script>
     <title>SpaceX Launch History</title>
@@ -23,17 +23,6 @@
 
 <body>
     <header>
-        <!-- NAVBAR START -->
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link active" href="#">Contact</a>
-                  </div>
-                </div>
-              </nav>
-        NAVBAR END -->
 
         <!-- Jumbotron Start -->
         <div class="jumbotron jumbotron-fluid bg-dark text-center my-0">
@@ -85,33 +74,27 @@
                             </select>
                         </div>
                         <!-- MISSION SELECT END -->
-                        <!-- <div class="div pt-3 pb-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div> -->
+
 
                     </form>
-                    <!-- FORM END -->
+
                 </div>
 
-                <!-- <div  class=" col-md-2 mx-left mission-div">
-
-                    </div> -->
-
                 <div class="col-md-7  mx-auto mission-div pb-5">
-                    <img src="img/falcon9.jpg" alt="dragon" capsule class="img-fluid">
+                    <img src="img/falcon9.jpg" alt="dragon capsule" class="img-fluid">
                 </div>
 
             </div>
         </div>
 
-        <!-- CAROUSEL END -->
+        <!-- INFO END -->
 
         <!-- CONTACT START -->
         <div class="div gray">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 p-4">
-                        <form  cid="contact-form"onsubmit="return sendMail(this);">
+                        <form class="contact-form" onsubmit="return sendMail(this);">
                             <div class="form-group">
                                 <h3 class="pb-3 pt-3">Get In contact</h3>
                                 <label for="email">Email address</label>
@@ -135,16 +118,14 @@
 
     </main>
 
-    <footer>
-        <footer class="footer mt-auto py-3  text-center bg-dark">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4 mx-auto">
-                        <a href="https://github.com/EthanCundick/" target="_blank"><i class="fa fa-github pt-2"></i></a>
-                    </div>
-                </div>
-        </footer>
 
+    <footer class="footer mt-auto py-3  text-center bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <a href="https://github.com/EthanCundick/" target="_blank"><i class="fa fa-github pt-2"></i></a>
+                </div>
+            </div>
         </div>
 
 

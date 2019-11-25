@@ -1,9 +1,8 @@
 let years = []; // Var used to store years, used by getYears and displayYears
-var locations = [] // Var used to store locations 
-var rockets = [] // var used to store rocket types
-var missions = [] // var for storing mission info
-var spacexData = [] // used to store all data pulled from API. 
-const missionDiv = $(".mission-div");
+let rockets = []; // var used to store rocket types
+let missions = []; // var for storing mission info
+let spacexData = []; // used to store all data pulled from API. 
+let missionDiv = $(".mission-div");
 
 
 /**
@@ -38,7 +37,7 @@ function storeData(data) {
 function getYears() {
     spacexData.forEach(element => {
         if (!(years.includes(element.launch_year))) {
-            years.push(element.launch_year)
+            years.push(element.launch_year);
         }
     });
     displayYears();
@@ -50,18 +49,18 @@ function getYears() {
 function displayYears() {
     const yearDiv = $("#year-select");
     years.forEach(year => {
-        yearDiv.append(`<option>${year}</option>`)
-    })
-};
+        yearDiv.append(`<option>${year}</option>`);
+    });
+}
 
 /**
  * Gets rockets from spaceXdata and stores them in the rockets array
  */
 function getRocket() {
-    rockets = [] //Clears rockets already in array
+    rockets = []; //Clears rockets already in array
     spacexData.forEach(element => {
         if (!(rockets.includes(element.rocket.rocket_name)) && (element.launch_year == $("#year-select").val())) { //If rocket name not in array and selected year is equal to the year of cuurent element.
-            rockets.push(element.rocket.rocket_name)
+            rockets.push(element.rocket.rocket_name);
             displayRockets();
         }
     });
@@ -74,8 +73,8 @@ function displayRockets() {
     const rocketDiv = $("#rocket-select");
     rocketDiv.empty(); //Removes child elements.
     rockets.forEach(rocket => {
-        rocketDiv.append(`<option>${rocket}</option>`)
-    })
+        rocketDiv.append(`<option>${rocket}</option>`);
+    });
     if (rockets.length > 1) {
         $(".rocket-select").show();
     } else {
@@ -87,17 +86,16 @@ function displayRockets() {
  * Gets missions of year and rocket selected.
  */
 function getMissions() {
-    missions = [] //Clears missions already in array
+    missions = []; //Clears missions already in array
     spacexData.forEach(element => {
         if (!(missions.includes(element.mission_name)) &&
-            (element.launch_year == $("#year-select").val()) //Check launch year current value
-            &&
+            (element.launch_year == $("#year-select").val())  &&
             (element.rocket.rocket_name == $("#rocket-select").val())) //checks current rocket value
         { //If rocket name not in array and selected year is equal to the year of cuurent element.
-            missions.push(element.mission_name)
+            missions.push(element.mission_name);
         }
     });
-    displayMissions()
+    displayMissions();
 }
 
 /**
@@ -105,10 +103,10 @@ function getMissions() {
  */
 function displayMissions() {
     const missionForm = $("#missions");
-    missionForm.empty()
+    missionForm.empty();
     missions.forEach(mission => {
-        missionForm.append(`<option>${mission}</option>`)
-    })
+        missionForm.append(`<option>${mission}</option>`);
+    });
     $(".mission-select").show();
     updateMissionInfo();
 }
@@ -117,24 +115,24 @@ function displayMissions() {
  * Displays relevant information on page about currently selected mission
  */
 function updateMissionInfo() {
-    missionDiv.empty()
+    missionDiv.empty();
     spacexData.forEach(element => {
         if (element.mission_name === $("#missions").val()) {
             missionDiv.append(`<h3 class="text-center pb-3">${element.mission_name}</h3>`);
             if (element.links.video_link) {
                 missionDiv.append(`<div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${element.links.youtube_id}" allowfullscreen></iframe>
-              </div>`)
+              </div>`);
             } else if (element.links.mission_patch) {
-                missionDiv.append(`<img src=${element.links.mission_patch} class="" id="mission-patch" alt="">`)
+                missionDiv.append(`<img src=${element.links.mission_patch} class="" id="mission-patch" alt="">`);
             } else {
-                missionDiv.append(`<img src="img/${element.rocket.rocket_id}.jpg" class="img-fluid" id="mission-patch" alt="">`)
+                missionDiv.append(`<img src="img/${element.rocket.rocket_id}.jpg" class="img-fluid" id="mission-patch" alt="">`);
             }
-            missionDiv.append(`<h4 class="mission-info pt-3">Mission Information:</h4>`)
-            missionDiv.append(`<p class="mission-date">Date: ${element.launch_date_utc}</p>`)
-            missionDiv.append(`<p class="mission-date">Location: ${element.launch_site.site_name_long}</p>`)
+            missionDiv.append(`<h4 class="mission-info pt-3">Mission Information:</h4>`);
+            missionDiv.append(`<p class="mission-date">Date: ${element.launch_date_utc}</p>`);
+            missionDiv.append(`<p class="mission-date">Location: ${element.launch_site.site_name_long}</p>`);
             if (element.details) {
-                missionDiv.append(`<p>${element.details}</p>`)
+                missionDiv.append(`<p>${element.details}</p>`);
             }
 
         }
@@ -145,6 +143,10 @@ function updateMissionInfo() {
 
 // Email JS
 
+/**
+ * Called by submit on contatc form. sends email by taking values stored in contact form.
+ * @param {*} contactForm 
+ */
 function sendMail(contactForm) {
     if (formValidate()) {
         emailjs.send("outlook", "default", {
@@ -165,7 +167,6 @@ function sendMail(contactForm) {
             );
         return false; // To block from loading a new page
     } else {
-        console.log("im here")
         return false;
     }
 }
@@ -173,6 +174,9 @@ function sendMail(contactForm) {
 
 // Form Validation
 
+/**
+ * Ensures that form is valid befoe submition
+ */
 function formValidate() {
     if (checkMail() && checkMessage()) {
         return true;
@@ -185,34 +189,33 @@ function formValidate() {
  * Checks that mail is valid using regex and that address is present
  */
 function checkMail() {
-    const $mail = $('#email');
-    const regexForEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ //Regex to check against
-    if ($mail.val() === "") {
-        $mail.css("border", "2px solid red");
+    let mail = $('#email');
+    const regexForEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; //Regex to check against
+    if (mail.val() === "") {
+        mail.css("border", "2px solid red");
         return false;
-    } else if (regexForEmail.test($mail.val()) === false) {
-        $mail.css("border", "2px solid red");
-        return false
+    } else if (regexForEmail.test(mail.val()) === false) {
+        mail.css("border", "2px solid red");
+        return false;
     } else {
-        $mail.css("border", "2px solid green");
+        mail.css("border", "2px solid green");
         return true;
     }
 }
 
+/**
+ * Checks message is present to esnure mail is not sent empty.
+ */
 function checkMessage() {
     const message = $("#message");
     if (message.val() === "") {
-        message.css("border", "2px solid red")
+        message.css("border", "2px solid red");
         return false;
     } else {
         message.css("border", "2px solid green");
-        return true
+        return true;
     }
 }
-
-
-
-
 
 /**
  * Hides all selections until they are relevant.
@@ -223,33 +226,36 @@ function hideSelection() {
 }
 
 
+//Event Listerners.
 
-
-//Event Listerners. 
+// When year select changes
 $("#year-select").change(function () {
-    hideSelection()
+    hideSelection();
     getRocket();
 });
 
+// When rocket select changes
 $("#rocket-select").change(function () {
     getMissions();
-})
+});
 
+// When Mission selection changes
 $("#missions").change(function () {
     updateMissionInfo();
-})
+});
 
+// When email field changes
 $('#email').on("change focusout", () => {
     checkMail();
 });
 
+// When message field changes
 $('#message').on("change focusout", () => {
     checkMessage();
 });
 
-
+// When doc ready, hide rocket and mission displays and call getData
 $(document).ready(function () {
-    hideSelection()
+    hideSelection();
     getData(storeData);
-    $('.carousel').carousel('pause');
-})
+});
