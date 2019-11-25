@@ -54,7 +54,7 @@ function displayYears() {
 }
 
 /**
- * Gets rockets from spaceXdata and stores them in the rockets array
+ * Gets rockets from spaceXdata and stores them in the rockets array, loops through spacexData and appends to rockets array.
  */
 function getRocket() {
     rockets = []; //Clears rockets already in array
@@ -67,7 +67,7 @@ function getRocket() {
 }
 
 /**
- * Displays rockets on page unless there is only one rocket
+ * Displays rockets on page unless there is only one rocket. Loops trheough rockets array and appends to page. 
  */
 function displayRockets() {
     const rocketDiv = $("#rocket-select");
@@ -144,7 +144,7 @@ function updateMissionInfo() {
 // Email JS
 
 /**
- * Called by submit on contatc form. sends email by taking values stored in contact form.
+ * Called by submit on contact form. sends email by taking values stored in contact form.
  * @param {*} contactForm 
  */
 function sendMail(contactForm) {
@@ -175,7 +175,7 @@ function sendMail(contactForm) {
 // Form Validation
 
 /**
- * Ensures that form is valid befoe submition
+ * Ensures that form is valid befoe submition, if checkMail and checkMessage dont return true. 
  */
 function formValidate() {
     if (checkMail() && checkMessage()) {
